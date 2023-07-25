@@ -36,6 +36,14 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
+            <div style="text-align: center;">
+                <h1>Translations</h1>
+                <ul>
+                    <li> {{__('messages.hello guys')}} </li>
+                    <li> {{__('messages.Welcome')}} </li>
+                    <li> {{__('messages.How Are You ?')}} </li>
+                </ul>
+            </div>
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
                 <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
