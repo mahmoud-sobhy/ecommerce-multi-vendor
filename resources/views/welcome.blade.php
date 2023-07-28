@@ -865,8 +865,8 @@
                 <h1>Translations</h1>
                 <ul>
                     <li> {{__('messages.hello guys')}} </li>
-                    <li> {{__('messages.Welcome')}} </li>
-                    <li> {{__('messages.How Are You ?')}} </li>
+                    <li> {{__('messages.welcome')}} </li>
+                    <li> {{__('messages.how are you ?')}} </li>
                 </ul>
             </div> 
             
