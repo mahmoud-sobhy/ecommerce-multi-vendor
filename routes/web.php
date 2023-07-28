@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,12 @@ Route::get('/landing', function () {
 
 Route::get('/about', function () {
     return view('about');
+});
+
+
+Route::group(['prefix'=>'offers'], function(){
+    // Route::get('store', [OfferController::class, 'store']);
+    Route::get('create', [OfferController::class, 'create']);
 });
 
 Route::get('/dashboard', function () {
