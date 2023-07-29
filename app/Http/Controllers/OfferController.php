@@ -33,13 +33,13 @@ class OfferController extends Controller
         ];
 
         $arabicMessages = [
-            'name.required' => 'هذا الحقل مطلوب إدخاله',
-            'name.max' => 'عدد الحروف لا يزيد عن 100 حرف',
-            'name.unique' =>'هذا العرض موجود مسبقا' ,
-            'price.required' => 'هذا الحقل مطلوب إدخاله',
-            'price.numeric' =>'هذا الحق يجب أن يكون رقما' ,
-            'price.min' =>'هذا الحقل يجب أن لا يقل عن 1' ,
-            'details.required' => 'هذا الحقل مطلوب إدخاله',
+            'name.required' => __('validationMessages.name_required'),
+            'name.max' => __('validationMessages.name_max'),
+            'name.unique' => __('validationMessages.name_unique') ,
+            'price.required' => __('validationMessages.price_required'),
+            'price.numeric' => __('validationMessages.price_numeric'),
+            'price.min' => __('validationMessages.price_min') ,
+            'details.required' => __('validationMessages.details_required'),
         ];
 
         $validator = Validator::make( $request->all(), $rules, $arabicMessages);
