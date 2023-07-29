@@ -27,6 +27,15 @@
         <div class="form-container">
             <h1 class="mb-4">Add New Offer</h1>
 
+            {{-- @if (session()->has()->errors())
+            <div class="alert alert-danger" role="alert">{{ $errors }}</div>
+        
+            <script>
+                setTimeout(function() {
+                    window.location.href = '{{ url()->previous() }}';
+                }, 5000);
+            </script>
+            @endif --}}
 
     @if (session()->has('success'))
     <div class="alert alert-danger" role="alert">{{ session()->get('success') }}</div>
@@ -36,7 +45,7 @@
             window.location.href = '{{ url()->previous() }}';
         }, 5000);
     </script>
-@endif
+    @endif
 
 
             <form action="{{ url('offers/store') }}" method="post">
@@ -48,7 +57,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Price</label>
-                    <input type="number" class="form-control" name="price" autocomplete="off">
+                    <input type="number" class="form-control" name="price" autocomplete="off" min="1">
                 </div>
 
                 <div class="mb-3">
