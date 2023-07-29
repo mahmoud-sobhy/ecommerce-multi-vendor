@@ -45,7 +45,7 @@ class OfferController extends Controller
         $validator = Validator::make( $request->all(), $rules, $arabicMessages);
 
             if($validator -> fails()){
-                return $validator->errors();
+                return redirect()->back()->withErrors($validator)->withInput($request->all());
             }
 
 
@@ -55,7 +55,7 @@ class OfferController extends Controller
             'details' => $request->details ,
         ]);
 
-        session()->flash('success', 'Data has been stored successfully!');
+        session()->flash('success', 'تم إضافة العرض بنجاح');
 
         return redirect()->back();
 

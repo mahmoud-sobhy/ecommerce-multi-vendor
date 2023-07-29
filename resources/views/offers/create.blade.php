@@ -37,15 +37,15 @@
             </script>
             @endif --}}
 
-    @if (session()->has('success'))
-    <div class="alert alert-danger" role="alert">{{ session()->get('success') }}</div>
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">{{ session()->get('success') }}</div>
 
-    <script>
-        setTimeout(function() {
-            window.location.href = '{{ url()->previous() }}';
-        }, 5000);
-    </script>
-    @endif
+                <script>
+                    setTimeout(function() {
+                        window.location.href = '{{ url()->previous() }}';
+                    }, 5000);
+                </script>
+            @endif
 
 
             <form action="{{ url('offers/store') }}" method="post">
@@ -53,16 +53,25 @@
                 <div class="mb-3">
                     <label class="form-label">Name</label>
                     <input type="text" class="form-control" name="name" autocomplete="off">
+                    @error ('name')
+                        <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Price</label>
                     <input type="number" class="form-control" name="price" autocomplete="off" min="1">
+                    @error ('price')
+                        <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Details</label>
                     <textarea class="form-control" name="details"></textarea>
+                    @error ('details')
+                        <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
