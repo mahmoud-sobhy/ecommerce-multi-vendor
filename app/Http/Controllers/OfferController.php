@@ -12,7 +12,7 @@ class OfferController extends Controller
     }
 
 
-    public function store(){
+    public function store(Request $request){
         // Offer::where('id')->truncate();
         // $offer = Offer::create([
         //     'name' => 'mahmoud sobhy',
@@ -20,5 +20,16 @@ class OfferController extends Controller
         //     'details' => 'this is offer no.1',
         // ]);
         // return $offer;
+
+        Offer::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'details' => $request->details ,
+        ]);
+
+        session()->flash('success', 'Data has been stored successfully!');
+
+        return redirect()->back();
+
     }
 }

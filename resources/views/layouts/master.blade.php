@@ -17,6 +17,7 @@
         type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ URL::asset('css/styles.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 
 <body id="page-top">
@@ -293,7 +294,11 @@
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+
+    {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>

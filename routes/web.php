@@ -31,6 +31,7 @@ Route::get('/about', function () {
 Route::group(['prefix'=>'offers'], function(){
     // Route::get('store', [OfferController::class, 'store']);
     Route::get('create', [OfferController::class, 'create']);
+    Route::post('store', [OfferController::class, 'store']);
 });
 
 Route::get('/dashboard', function () {
