@@ -25,7 +25,7 @@
 
     <div class="container">
         <div class="form-container">
-            <h1 class="mb-4">Add New Offer</h1>
+            <h1 class="mb-4">{{__('messages.Add New Offer')}}</h1>
 
             {{-- @if (session()->has()->errors())
             <div class="alert alert-danger" role="alert">{{ $errors }}</div>
@@ -51,7 +51,7 @@
             <form action="{{ url('offers/store') }}" method="post">
                 @csrf
                 <div class="mb-3">
-                    <label class="form-label">Name</label>
+                    <label class="form-label">{{__('messages.nameofinput')}}</label>
                     <input type="text" class="form-control" name="name" autocomplete="off">
                     @error ('name')
                         <small class="form-text text-danger">{{$message}}</small>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Price</label>
+                    <label class="form-label">{{__('messages.priceofinput')}}</label>
                     <input type="number" class="form-control" name="price" autocomplete="off" min="1">
                     @error ('price')
                         <small class="form-text text-danger">{{$message}}</small>
@@ -67,10 +67,10 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Details</label>
+                    <label class="form-label">{{__('messages.detailsofinput')}}</label>
                     <textarea class="form-control" name="details"></textarea>
                     @error ('details')
-                        <small class="form-text text-danger">{{$message}}</small>
+                        <small class="form-text text-danger">{{ $message }}</small>
                     @enderror
                 </div>
 

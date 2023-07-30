@@ -32,17 +32,17 @@ class OfferController extends Controller
             'details' => 'required',
         ];
 
-        $arabicMessages = [
-            'name.required' => __('validationMessages.name_required'),
-            'name.max' => __('validationMessages.name_max'),
-            'name.unique' => __('validationMessages.name_unique') ,
-            'price.required' => __('validationMessages.price_required'),
-            'price.numeric' => __('validationMessages.price_numeric'),
-            'price.min' => __('validationMessages.price_min') ,
-            'details.required' => __('validationMessages.details_required'),
+        $errorMessages = [
+            'name.required' => __('messages.name_required'),
+            'name.max' =>  __('messages.name_max') ,
+            'name.unique' =>  __('messages.name_unique')  ,
+            'price.required' =>   __('messages.price_required') ,
+            'price.numeric' =>  __('messages.price_numeric') ,
+            'price.min' =>  __('messages.price_min')  ,
+            'details.required' =>  __('messages.details_required') ,
         ];
 
-        $validator = Validator::make( $request->all(), $rules, $arabicMessages);
+        $validator = Validator::make( $request->all(), $rules, $errorMessages);
 
             if($validator -> fails()){
                 return redirect()->back()->withErrors($validator)->withInput($request->all());

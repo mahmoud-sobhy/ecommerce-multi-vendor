@@ -5,5 +5,24 @@ return [
   'hello guys' => 'Hello Guys',
   'welcome' => 'Welcome',
   'how are you ?' => 'How Are You ?',
+  'logo' => 'logo',
+  'menu' => 'menu',
+  'Portfolio' => 'Portfolio',
+  'About' => 'About',
+  'Contact' => 'contact',
+  'Add New Offer' => 'Add New Offer',
+  'nameofinput' => 'Name',
+  'priceofinput' => 'Price',
+  'detailsofinput' => 'Details',
+
+
+  //***error messages***/
+  'name_required' => 'this field is required ',
+  'name_max' => 'must be take least 100 characters',
+  'name_unique' => 'This offer already exists',
+  'price_required' => 'this field is required',
+  'price_numeric' =>'This offer must be a number' ,
+  'price_min' => 'This field must be at least 1 character',
+  'details_required' => 'this field is required',
 
 ];

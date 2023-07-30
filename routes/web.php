@@ -28,11 +28,23 @@ Route::get('/about', function () {
 });
 
 
-Route::group(['prefix'=>'offers'], function(){
-    // Route::get('store', [OfferController::class, 'store']);
-    Route::get('create', [OfferController::class, 'create']);
-    Route::post('store', [OfferController::class, 'store']);
-});
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ 
+
+        Route::group(['prefix'=>'offers'], function(){
+            // Route::get('store', [OfferController::class, 'store']);
+            Route::get('create', [OfferController::class, 'create']);
+            Route::post('store', [OfferController::class, 'store']);
+        });
+
+    });
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
