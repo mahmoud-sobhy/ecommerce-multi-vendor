@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -27,32 +28,42 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $rules =[
-            'name' => 'required|max:100|unique:offers,name',
-            'price' => 'required|numeric|min:1',
-            'details' => 'required',
-            'color' => 'required',
-            'itemWeight' => 'required',
-            'countryOfOrigin' => 'required',
-        ];
 
-        $errorMessages = [
-            'name.required' => __('messages.name_required'),
-            'name.max' =>  __('messages.name_max') ,
-            'name.unique' =>  __('messages.name_unique')  ,
-            'price.required' =>   __('messages.price_required') ,
-            'price.numeric' =>  __('messages.price_numeric') ,
-            'price.min' =>  __('messages.price_min')  ,
-            'details.required' =>  __('messages.details_required') ,
-        ];
 
-        $validator = Validator::make( $request->all(), $rules, $errorMessages);
+        /////////////////////////////////////////////////////////////////////////////////
+        //   in this method "store" - we make for it ProductRequest and put in it      //
+        //   the messages spicilist by validation rules and messages of errors - then  //
+        //   we import class ProductRequest ....                                       //
+        /////////////////////////////////////////////////////////////////////////////////
 
-            if($validator -> fails()){
-                return redirect()->back()->withErrors($validator)->withInput($request->all());
-            }
+
+
+        // $rules =[
+        //     'name' => 'required|max:100|unique:offers,name',
+        //     'price' => 'required|numeric|min:1',
+        //     'details' => 'required',
+        //     'color' => 'required',
+        //     'itemWeight' => 'required',
+        //     'countryOfOrigin' => 'required',
+        // ];
+
+        // $errorMessages = [
+        //     'name.required' => __('messages.name_required'),
+        //     'name.max' =>  __('messages.name_max') ,
+        //     'name.unique' =>  __('messages.name_unique')  ,
+        //     'price.required' =>   __('messages.price_required') ,
+        //     'price.numeric' =>  __('messages.price_numeric') ,
+        //     'price.min' =>  __('messages.price_min')  ,
+        //     'details.required' =>  __('messages.details_required') ,
+        // ];
+
+        // $validator = Validator::make( $request->all(), $rules, $errorMessages);
+
+            // if($validator -> fails()){
+                // return redirect()->back()->withErrors($validator)->withInput($request->all());
+            // }
 
 
         Product::create([

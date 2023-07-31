@@ -22,7 +22,7 @@ return [
 
 
   //***error messages***/
-  'name_required' => 'this field is required ',
+  'name_required' => 'this field is required',
   'name_max' => 'must be take least 100 characters',
   'name_unique' => 'This offer already exists',
   'price_required' => 'this field is required',
