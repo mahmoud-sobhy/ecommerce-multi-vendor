@@ -16,6 +16,11 @@ return [
   'nameofinput' =>  'الإسم',
   'priceofinput' =>  'السعر',
   'detailsofinput' =>  'أدخل تفاصيل العرض',
+  'submit' =>  'حفظ',
+
+  'color' => 'اللون ',
+  'country of origin' => 'بلد المنشأ',
+  'item Weight' => 'وزن المنتج',
 
 
   //***error messages***/

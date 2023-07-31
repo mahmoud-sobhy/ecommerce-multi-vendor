@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+
+Route::get('/login', function () {
+    return view('');
 });
 
 Route::get('/landing', function () {
@@ -28,17 +34,33 @@ Route::get('/about', function () {
 });
 
 
-
+//***routs of offers***/
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth' ]
     ], function(){ 
 
         Route::group(['prefix'=>'offers'], function(){
             // Route::get('store', [OfferController::class, 'store']);
             Route::get('create', [OfferController::class, 'create']);
             Route::post('store', [OfferController::class, 'store']);
+        });
+
+    });
+
+
+//***routs of products***/
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' , 'auth' ]
+    ], function(){ 
+
+        Route::group(['prefix'=>'products'], function(){
+            // Route::get('store', [OfferController::class, 'store']);
+            Route::get('create', [ProductController::class, 'create']);
+            Route::post('store', [ProductController::class, 'store']);
         });
 
     });

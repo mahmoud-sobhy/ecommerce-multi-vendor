@@ -74,7 +74,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">{{__('messages.submit')}}</button>
             </form>
         </div>
     </div>
