@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 
 Route::get('/login', function () {
-    return view('');
+    return view('login');
 });
 
 Route::get('/landing', function () {
@@ -43,8 +43,9 @@ Route::group(
 
         Route::group(['prefix'=>'offers'], function(){
             // Route::get('store', [OfferController::class, 'store']);
-            Route::get('create', [OfferController::class, 'create']);
-            Route::post('store', [OfferController::class, 'store']);
+            Route::get('/index', [OfferController::class, 'index']);
+            Route::get('/create', [OfferController::class, 'create']);
+            Route::post('/store', [OfferController::class, 'store']);
         });
 
     });

@@ -9,13 +9,16 @@ return [
   'how are you ?' => 'كيف الحال ؟',
   'logo' => 'شعار الموقع',
   'menu' =>  'القائمة',
+  'Home' =>  'الرئيسية',
   'Portfolio' =>  'الملف الشخصى',
   'About' =>  'حولنا ',
   'Contact' =>  'للتواصل ',
   'Add New Offer' =>  'إضافة عرض جديد ',
-  'nameofinput' =>  'الإسم',
+  'nameofinput_ar' =>  'أدخل الإسم بالعربى ',
+  'nameofinput_en' =>  'أدخل الإسم بالإنجليزية',
   'priceofinput' =>  'السعر',
-  'detailsofinput' =>  'أدخل تفاصيل العرض',
+  'detailsofinput_ar' =>  'أدخل تفاصيل العرض بالعربى',
+  'detailsofinput_en' =>  'أدخل تفاصيل العرض بالإنجليزى',
   'submit' =>  'حفظ',
 
   'color' => 'اللون ',
@@ -31,5 +34,16 @@ return [
   'price_numeric' =>'هذا العرض يجب أن يكون رقما' ,
   'price_min' =>'هذا الحقل يجب أن لا يقل عن 1' ,
   'details_required' => 'هذا الحقل مطلوب إدخاله',
+  ///
+  'add offers' => 'إضافة عرض',
+  'show offers' => 'إظهار العروض',
+  'offers' => 'العروض',
+  ///
 
+  'Number' => 'الترقيم',
+  'id' => 'الرقم التعريفى ',
+  'name' =>  'الإسم ',
+  'price' => 'السعر',
+  'details' => 'التفاصيل  ',
+  'actions' =>'الحركات',
 ];

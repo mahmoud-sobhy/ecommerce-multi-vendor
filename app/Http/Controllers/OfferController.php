@@ -5,9 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use LaravelLocalization;
 
 class OfferController extends Controller
 {
+
+    public function index(){
+        // $offers = Offer::get();
+        // return 'hello';
+        // return view('offers.show')->with('offers',$offers);
+        // return view('offers.show', compact('offers', 'offers'));
+        $offers = Offer::select('id', 'price',
+        'name_'.LaravelLocalization::getCurrentLocale() .' as name',
+        'details_'.LaravelLocalization::getCurrentLocale() .' as details')->get();
+        return view('offers.show', ['offers' => $offers]);
+    }
+
+
     public function create(){
         return view('offers.create');
     }
@@ -27,19 +41,25 @@ class OfferController extends Controller
         //make a validation
 
         $rules =[
-            'name' => 'required|max:100|unique:offers,name',
+            'name_ar' => 'required|max:100|unique:offers,name_ar',
+            'name_en' => 'required|max:100|unique:offers,name_en',
             'price' => 'required|numeric|min:1',
-            'details' => 'required',
+            'details_ar' => 'required',
+            'details_en' => 'required',
         ];
 
         $errorMessages = [
-            'name.required' => __('messages.name_required'),
-            'name.max' =>  __('messages.name_max') ,
-            'name.unique' =>  __('messages.name_unique')  ,
+            'name_ar.required' => __('messages.name_required'),
+            'name_en.required' => __('messages.name_required'),
+            'name_ar.max' =>  __('messages.name_max') ,
+            'name_en.max' =>  __('messages.name_max') ,
+            'name_ar.unique' =>  __('messages.name_unique')  ,
+            'name_en.unique' =>  __('messages.name_unique')  ,
             'price.required' =>   __('messages.price_required') ,
             'price.numeric' =>  __('messages.price_numeric') ,
             'price.min' =>  __('messages.price_min')  ,
-            'details.required' =>  __('messages.details_required') ,
+            'details_ar.required' =>  __('messages.details_required') ,
+            'details_en.required' =>  __('messages.details_required') ,
         ];
 
         $validator = Validator::make( $request->all(), $rules, $errorMessages);
@@ -50,9 +70,11 @@ class OfferController extends Controller
 
 
         Offer::create([
-            'name' => $request->name,
+            'name_ar' => $request->name_ar,
+            'name_en' => $request->name_en,
             'price' => $request->price,
-            'details' => $request->details ,
+            'details_ar' => $request->details_ar,
+            'details_en' => $request->details_en,
         ]);
 
         session()->flash('success', 'تم إضافة العرض بنجاح');

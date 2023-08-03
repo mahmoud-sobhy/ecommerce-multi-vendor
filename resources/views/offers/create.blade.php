@@ -15,7 +15,7 @@
             max-width: 60%;
             padding: 20px;
             position: absolute;
-            top: 50%;
+            top: 60%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
@@ -51,9 +51,17 @@
             <form action="{{ url('offers/store') }}" method="post">
                 @csrf
                 <div class="mb-3">
-                    <label class="form-label">{{__('messages.nameofinput')}}</label>
-                    <input type="text" class="form-control" name="name" autocomplete="off">
-                    @error ('name')
+                    <label class="form-label">{{__('messages.nameofinput_ar')}}</label>
+                    <input type="text" class="form-control" name="name_ar" autocomplete="off">
+                    @error ('name_ar')
+                        <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{__('messages.nameofinput_en')}}</label>
+                    <input type="text" class="form-control" name="name_en" autocomplete="off">
+                    @error ('name_en')
                         <small class="form-text text-danger">{{$message}}</small>
                     @enderror
                 </div>
@@ -67,9 +75,17 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">{{__('messages.detailsofinput')}}</label>
-                    <textarea class="form-control" name="details"></textarea>
-                    @error ('details')
+                    <label class="form-label">{{__('messages.detailsofinput_ar')}}</label>
+                    <textarea class="form-control" name="details_ar"></textarea>
+                    @error ('details_ar')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{__('messages.detailsofinput_en')}}</label>
+                    <textarea class="form-control" name="details_en"></textarea>
+                    @error ('details_en')
                         <small class="form-text text-danger">{{ $message }}</small>
                     @enderror
                 </div>
