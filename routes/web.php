@@ -43,9 +43,11 @@ Route::group(
 
         Route::group(['prefix'=>'offers'], function(){
             // Route::get('store', [OfferController::class, 'store']);
-            Route::get('/index', [OfferController::class, 'index']);
+            Route::get('/index', [OfferController::class, 'index'])->name('offers.index');
             Route::get('/create', [OfferController::class, 'create']);
             Route::post('/store', [OfferController::class, 'store']);
+            Route::get('/edit/{id}', [OfferController::class, 'edit']);
+            Route::post('/update/{id}', [OfferController::class, 'update']);
         });
 
     });

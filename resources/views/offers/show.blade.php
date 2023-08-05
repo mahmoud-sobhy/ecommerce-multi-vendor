@@ -28,7 +28,13 @@
                                 <td>{{ $offer->name }}</td>
                                 <td>{{ $offer->price }}</td>
                                 <td>{{ $offer->details }}</td> 
-                                <td>Show <br> Edit <br> Delete</td>
+                                <td> 
+                                    <a href="{{('/offers/edit/'). $offer->id}}">Edit</a> 
+                                    <br>
+                                    Show
+                                    <br>
+                                    Delete
+                                </td>
                             </tr>
                         @endforeach
 

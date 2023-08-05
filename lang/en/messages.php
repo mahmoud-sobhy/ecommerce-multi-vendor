@@ -18,6 +18,7 @@ return [
   'detailsofinput_ar' => 'Enter Details In Arabic',
   'detailsofinput_en' => 'Enter Details In English',
   'submit' => 'Submit',
+  'update' => 'update',
 
   'color' => 'color',
   'country of origin' => 'country of origin',

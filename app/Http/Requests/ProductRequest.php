@@ -34,7 +34,7 @@ class ProductRequest extends FormRequest
     public function messages()
     {
         return [
-                'name.required' => __('messages.name_required'),
+            'name.required' => __('messages.name_required'),
             'name.max' =>  __('messages.name_max') ,
             'name.unique' =>  __('messages.name_unique')  ,
             'price.required' =>   __('messages.price_required') ,

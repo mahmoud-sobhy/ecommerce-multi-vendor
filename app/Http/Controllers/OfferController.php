@@ -82,4 +82,36 @@ class OfferController extends Controller
         return redirect()->back();
 
     }
+
+
+
+    public function edit(Offer $offer, $id){
+
+        $offer = Offer::where('id', $id)->first();
+        return view('offers.edite')->with('offer', $offer);
+        // return view('offers.edite',['offer'=> $offer]);
+        // return view('offers.edite', compact('offer'));
+    }
+
+
+    public function update(Request $request, $id){
+
+        //dont forget validation 
+        
+        // Offer::where('id',$id)->update( $request->except(['_token']));
+        //     session()->flash('success', 'تم تعديل العرض بنجاح');
+        //     return redirect()->back();
+
+        Offer::where('id',$id)->update([
+            'name_ar' => $request->name_ar,
+            'name_en' => $request->name_en,
+            'price' => $request->price,
+            'details_ar' => $request->details_ar,
+            'details_en' => $request->details_en,
+        ]);
+            session()->flash('success', 'تم تعديل العرض بنجاح');
+            return redirect()->route('offers.index');
+    }
+
+
 }

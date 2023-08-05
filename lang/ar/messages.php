@@ -20,6 +20,7 @@ return [
   'detailsofinput_ar' =>  'أدخل تفاصيل العرض بالعربى',
   'detailsofinput_en' =>  'أدخل تفاصيل العرض بالإنجليزى',
   'submit' =>  'حفظ',
+  'update' => 'تحديث',
 
   'color' => 'اللون ',
   'country of origin' => 'بلد المنشأ',
