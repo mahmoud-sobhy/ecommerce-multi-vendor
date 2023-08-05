@@ -6,9 +6,11 @@ use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use LaravelLocalization;
+use App\Traits\UploadTrait;
 
 class OfferController extends Controller
 {
+    use UploadTrait;
 
     public function index(){
         // $offers = Offer::get();
@@ -63,10 +65,16 @@ class OfferController extends Controller
         ];
 
         //save photo in folder
-        $file_extension = $request->photo -> getClientOriginalExtension();
-        $file_name = uniqid() . time() . '.'. $file_extension;
-        $path = 'images/offers';
-        $request->photo->move( $path, $file_name);
+        //
+        //this part of code we import it from "UploadTrait"
+        //
+        // $file_extension = $request->photo -> getClientOriginalExtension();
+        // $file_name = uniqid() . time() . '.'. $file_extension;
+        // $path = 'images/offers';
+        // $request->photo->move( $path, $file_name);
+
+
+        $file_name = $this->saveImage($request->photo , 'images/offers');
 
 
         $validator = Validator::make( $request->all(), $rules, $errorMessages);
