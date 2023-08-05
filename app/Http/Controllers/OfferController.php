@@ -62,6 +62,13 @@ class OfferController extends Controller
             'details_en.required' =>  __('messages.details_required') ,
         ];
 
+        //save photo in folder
+        $file_extension = $request->photo -> getClientOriginalExtension();
+        $file_name = uniqid() . time() . '.'. $file_extension;
+        $path = 'images/offers';
+        $request->photo->move( $path, $file_name);
+
+
         $validator = Validator::make( $request->all(), $rules, $errorMessages);
 
             if($validator -> fails()){
@@ -75,6 +82,7 @@ class OfferController extends Controller
             'price' => $request->price,
             'details_ar' => $request->details_ar,
             'details_en' => $request->details_en,
+            'photo' => $file_name,
         ]);
 
         session()->flash('success', 'تم إضافة العرض بنجاح');

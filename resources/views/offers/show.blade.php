@@ -14,6 +14,7 @@
                             <th scope="col">{{ __('messages.name')}}</th> 
                             <th scope="col">{{__('messages.price')}}</th>
                             <th scope="col">{{ __('messages.details')}}</th>
+                            <th scope="col">{{__('messages.offer_photo')}}</th>
                             <th scope="col">{{__('messages.actions')}}</th>
                         </tr>
                     </thead>
@@ -28,6 +29,11 @@
                                 <td>{{ $offer->name }}</td>
                                 <td>{{ $offer->price }}</td>
                                 <td>{{ $offer->details }}</td> 
+                                <td>
+                                    <div style="height: 40px; width:55px;">
+                                        <img src="">
+                                    </div>
+                                </td> 
                                 <td> 
                                     <a href="{{('/offers/edit/'). $offer->id}}">Edit</a> 
                                     <br>

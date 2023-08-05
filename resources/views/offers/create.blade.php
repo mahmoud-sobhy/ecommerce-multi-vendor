@@ -11,7 +11,7 @@
             background-color: #fff;
             border: 1px solid #dee2e6;
             border-radius: 10px;
-            margin: 55px auto;
+            margin: 110px auto;
             max-width: 60%;
             padding: 20px;
             position: absolute;
@@ -48,7 +48,7 @@
             @endif
 
 
-            <form action="{{ url('offers/store') }}" method="post">
+            <form action="{{ url('offers/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">{{__('messages.nameofinput_ar')}}</label>
@@ -87,6 +87,14 @@
                     <textarea class="form-control" name="details_en"></textarea>
                     @error ('details_en')
                         <small class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{__('messages.choose_photo')}}</label>
+                    <input type="file" class="form-control" name="photo" autocomplete="off">
+                    @error ('photo')
+                        <small class="form-text text-danger">{{$message}}</small>
                     @enderror
                 </div>
 

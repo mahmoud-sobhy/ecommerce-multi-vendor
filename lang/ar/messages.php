@@ -19,6 +19,7 @@ return [
   'priceofinput' =>  'السعر',
   'detailsofinput_ar' =>  'أدخل تفاصيل العرض بالعربى',
   'detailsofinput_en' =>  'أدخل تفاصيل العرض بالإنجليزى',
+  'choose_photo' => 'أختر صورة',
   'submit' =>  'حفظ',
   'update' => 'تحديث',
 
