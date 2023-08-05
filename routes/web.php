@@ -3,6 +3,7 @@
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,9 @@ Route::get('/landing', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+
+Route::get('getdatabytrait', [UserController::class, 'index']);
 
 
 //***routs of offers***/
