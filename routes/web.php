@@ -70,6 +70,7 @@ Route::group(
             Route::post('store', [ProductController::class, 'store']);
         });
 
+        Route::get('/youtube', [OfferController::class, 'getviewvideo']);
     });
 
 

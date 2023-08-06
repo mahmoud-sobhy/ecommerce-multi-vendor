@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offer;
+use App\Events\VisitTheVideo;
+use App\Models\ViewerCount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use LaravelLocalization;
@@ -127,6 +129,16 @@ class OfferController extends Controller
         ]);
             session()->flash('success', 'تم تعديل العرض بنجاح');
             return redirect()->route('offers.index');
+    }
+
+
+
+
+
+    public function getviewvideo(){
+        $viewers = ViewerCount::first();
+        event(new VisitTheVideo($viewers));
+        return view('eventvideo')->with('viewers' , $viewers);
     }
 
 
