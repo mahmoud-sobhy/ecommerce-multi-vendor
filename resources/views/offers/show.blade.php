@@ -30,7 +30,7 @@
                                 <td>{{ $offer->price }}</td>
                                 <td>{{ $offer->details }}</td> 
                                 <td>
-                        <img src="images/offers/64d0e61110b951691411985.PNG" />
+                                    <img src=""/>
                                 </td> 
                                 <td> 
                                     <a href="{{('/offers/edit/'). $offer->id}}">Edit</a> 

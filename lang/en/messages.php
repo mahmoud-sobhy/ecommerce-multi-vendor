@@ -49,4 +49,10 @@ return [
   'actions' =>'Actions',
 
 
+
+  //products
+  'add products with ajax' => 'Add Products With Ajax',
+  'show products' => 'Show Products'
+
+
 ];

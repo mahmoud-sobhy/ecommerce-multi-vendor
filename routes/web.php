@@ -59,20 +59,20 @@ Route::group(
 
 
 //***routs of products***/
-Route::group(
-    [
-        'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' , 'auth' ]
-    ], function(){ 
+// Route::group(
+//     [
+//         'prefix' => LaravelLocalization::setLocale(),
+//         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' , 'auth' ]
+//     ], function(){ 
 
-        Route::group(['prefix'=>'products'], function(){
-            // Route::get('store', [OfferController::class, 'store']);
-            Route::get('create', [ProductController::class, 'create']);
-            Route::post('store', [ProductController::class, 'store']);
-        });
+//         Route::group(['prefix'=>'products'], function(){
+//             // Route::get('store', [OfferController::class, 'store']);
+//             Route::get('create', [ProductController::class, 'create']);
+//             Route::post('store', [ProductController::class, 'store']);
+//         });
 
-        Route::get('/youtube', [OfferController::class, 'getviewvideo']);
-    });
+//         Route::get('/youtube', [OfferController::class, 'getviewvideo']);
+//     });
 
 
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+// use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
+// use Illuminate\Validation\Rule;
 
 class ProductRequest extends FormRequest
 {
@@ -22,12 +24,12 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:100|unique:offers,name',
-            'price' => 'required|numeric|min:1',
-            'details' => 'required',
+            'name' => 'required',
+            'price' => 'required',
             'color' => 'required',
-            'itemWeight' => 'required',
-            'countryOfOrigin' => 'required',
+            'item_weight' => 'required',
+            'country_of_origin' => 'required',
+            'details' => 'required',
         ];
     }
 
@@ -35,12 +37,12 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => __('messages.name_required'),
-            'name.max' =>  __('messages.name_max') ,
-            'name.unique' =>  __('messages.name_unique')  ,
             'price.required' =>   __('messages.price_required') ,
-            'price.numeric' =>  __('messages.price_numeric') ,
-            'price.min' =>  __('messages.price_min')  ,
+            'color.required' => 'the color is req',
+            'item_weight.required' => 'the color is req',
+            'country_of_origin.required' => 'country is req',
             'details.required' =>  __('messages.details_required') ,
         ];
     }
 }
+

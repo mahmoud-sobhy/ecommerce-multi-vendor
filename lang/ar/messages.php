@@ -49,4 +49,8 @@ return [
   'price' => 'السعر',
   'details' => 'التفاصيل  ',
   'actions' =>'الحركات',
+
+  //products
+  'add products with ajax' => 'إضافة منتج مع ajax',
+  'show products' => 'عرض المنتجات',
 ];
