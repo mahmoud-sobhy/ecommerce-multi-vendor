@@ -131,15 +131,24 @@ class OfferController extends Controller
             return redirect()->route('offers.index');
     }
 
+    public function destroy($id){
+        $offer = Offer::find($id)->delete();
+            
+        return redirect()->back();
+    }
 
 
 
 
+################# this example on event and listener###########
     public function getviewvideo(){
         $viewers = ViewerCount::first();
         event(new VisitTheVideo($viewers));
         return view('eventvideo')->with('viewers' , $viewers);
     }
+################################################################
+
+
 
 
 }

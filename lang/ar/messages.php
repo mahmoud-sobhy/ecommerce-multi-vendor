@@ -20,6 +20,7 @@ return [
   'detailsofinput_ar' =>  'أدخل تفاصيل العرض بالعربى',
   'detailsofinput_en' =>  'أدخل تفاصيل العرض بالإنجليزى',
   'choose_photo' => 'أختر صورة',
+  'offer_photo' => 'صورة العرض',
   'submit' =>  'حفظ',
   'update' => 'تحديث',
 

@@ -18,6 +18,7 @@ return [
   'detailsofinput_ar' => 'Enter Details In Arabic',
   'detailsofinput_en' => 'Enter Details In English',
   'choose_photo' => 'Choose Photo',
+  'offer_photo'=> 'offer photo',
   'submit' => 'Submit',
   'update' => 'update',
 

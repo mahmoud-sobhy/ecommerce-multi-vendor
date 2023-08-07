@@ -52,6 +52,7 @@ Route::group(
             Route::post('/store', [OfferController::class, 'store']);
             Route::get('/edit/{id}', [OfferController::class, 'edit']);
             Route::post('/update/{id}', [OfferController::class, 'update']);
+            Route::get('/destroy/{id}', [OfferController::class, 'destroy']);
         });
 
     });

@@ -30,16 +30,12 @@
                                 <td>{{ $offer->price }}</td>
                                 <td>{{ $offer->details }}</td> 
                                 <td>
-                                    <div style="height: 40px; width:55px;">
-                                        <img src="">
-                                    </div>
+                        <img src="images/offers/64d0e61110b951691411985.PNG" />
                                 </td> 
                                 <td> 
                                     <a href="{{('/offers/edit/'). $offer->id}}">Edit</a> 
                                     <br>
-                                    Show
-                                    <br>
-                                    Delete
+                                    <a href="{{('/offers/destroy/'). $offer->id}}">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
