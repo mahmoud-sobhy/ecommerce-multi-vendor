@@ -9,9 +9,10 @@ class Product extends Model
 {
     use HasFactory;
     
-    // public $timestamps = false;
+    public $timestamps = false;
+    protected $table = "products";
     
     protected $fillable = [
-        'name' ,'price' ,'color','item_weight','country_of_origin', 'details'
+        'name' ,'price' ,'color','photo','country_of_origin', 'details'
     ];
 }

@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'name' => 'required',
             'price' => 'required',
             'color' => 'required',
-            'item_weight' => 'required',
+            'photo' => 'required|image|max:2048',
             'country_of_origin' => 'required',
             'details' => 'required',
         ];
@@ -39,7 +39,9 @@ class ProductRequest extends FormRequest
             'name.required' => __('messages.name_required'),
             'price.required' =>   __('messages.price_required') ,
             'color.required' => 'the color is req',
-            'item_weight.required' => 'the color is req',
+            'photo.required' => 'Please select an image file*.',
+            'photo.image' => 'The selected file must be an image*.',
+            'photo.max' => 'The selected image may not be greater than 2 megabytes*.',
             'country_of_origin.required' => 'country is req',
             'details.required' =>  __('messages.details_required') ,
         ];

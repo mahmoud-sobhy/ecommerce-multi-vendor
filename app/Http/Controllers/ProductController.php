@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
+use App\Traits\UploadTrait;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      */
@@ -33,28 +35,48 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
+        // return 'hello';
+        $file_name = $this->saveImage($request->photo , 'images/products');
 
         $rules = $request->rules();
         $messages = $request->messages();
 
-        $validator = Validator::make( $request->all(), $rules, $messages);
+        $validatedData = $request->validated();
+        // $validator = Validator::make( $request->all(), $rules, $messages);
 
-            if($validator -> fails()){
-                return redirect()->back()->withErrors($validator)->withInput($request->all());
-            }
+            // if($validator -> fails()){
+            //     return redirect()->back()->withErrors($validator)->withInput($request->all());
+            // }
+
+            // if($validatedData -> fails()){
+            //     return redirect()->back()->withErrors($validatedData)->withInput($request->all());
+            // }
+
+
+
+        // Product::create([
+        //     'name' => $request->name,
+        //     'price' => $request->price,
+        //     'color' => $request->color,
+        //     'photo' => $file_name,
+        //     'country_of_origin' => $request->country_of_origin,
+        //     'details' => $request->details ,
+        // ]);
 
         Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'color' => $request->color,
-            'item_weight' => $request->item_weight,
-            'country_of_origin' => $request->country_of_origin,
-            'details' => $request->details ,
+            'name' => $validatedData['name'],
+            'price' => $validatedData['price'],
+            'color' => $validatedData['color'],
+            'photo' => $file_name,
+            'country_of_origin' => $validatedData['country_of_origin'],
+            'details' => $validatedData['details'],
         ]);
 
         session()->flash('success', 'تم إضافة المنتج بنجاح');
 
         return redirect()->back();
+
+        // return response()->json(['message' => 'Data stored successfully']);
 
     }
 

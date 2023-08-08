@@ -48,7 +48,7 @@
             @endif
 
 
-            <form action="{{ url('products/store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('products/store') }}" method="post" enctype="multipart/form-data" id="myForm">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">name of product</label>
@@ -75,12 +75,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">product weight</label>
-                    <input type="text" class="form-control" name="item_weight" autocomplete="off">
-                    @error ('product_weight')
+                    <label class="form-label">product photo</label>
+                    <input type="file" class="form-control" name="photo" autocomplete="off">
+                    @error ('photo')
                         <small class="form-text text-danger">{{$message}}</small>
                     @enderror
-                </div>
+                </div> 
 
                 <div class="mb-3">
                     <label class="form-label">country of origin</label>
@@ -103,3 +103,38 @@
         </div>
     </div>
 @endsection
+
+{{-- @section('scripts')
+    
+<script>
+    $(document).ready(function() {
+        // Find the form element
+        const form = $('#myForm');
+
+        // Add a submit event listener to the form
+        form.on('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Serialize the form data
+            const formData = form.serialize();
+
+            // Send the form data via AJAX
+            $.ajax({
+                url: '/products/store',
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    // Handle the response from the server
+                    console.log('hello');
+                    alert('hello');
+                },
+                error: function(error) {
+                    // Handle any errors that occurred during the AJAX request
+                    console.error('no' );
+                }
+            });
+        });
+    });
+</script>
+@endsection --}}

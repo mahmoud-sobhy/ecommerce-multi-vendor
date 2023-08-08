@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>{{ __('messages.offers')}} </h1>
+    <h1>All Products </h1>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-11">

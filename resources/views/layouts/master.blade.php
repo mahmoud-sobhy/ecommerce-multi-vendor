@@ -18,6 +18,8 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ URL::asset('css/styles.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    {{-- Jquery --}}
+    <script src="{{ asset('js/code.jquery.com_jquery-3.7.0.min.js') }}"></script>
 </head>
 
 <body id="page-top">
@@ -334,6 +336,8 @@
 
     {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
     <script src="{{ mix('js/app.js') }}"></script>
+
+    @yield('scripts')
 </body>
 
 </html>
