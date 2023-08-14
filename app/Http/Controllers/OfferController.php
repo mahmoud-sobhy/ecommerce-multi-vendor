@@ -19,6 +19,8 @@ class OfferController extends Controller
         // return 'hello';
         // return view('offers.show')->with('offers',$offers);
         // return view('offers.show', compact('offers', 'offers'));
+
+
         $offers = Offer::select('id', 'price',
         'name_'.LaravelLocalization::getCurrentLocale() .' as name',
         'details_'.LaravelLocalization::getCurrentLocale() .' as details')->get();

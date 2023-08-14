@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('price', 20);
             $table->string('color', 20);
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('country_of_origin', 20);
             $table->text('details');
             $table->timestamps();

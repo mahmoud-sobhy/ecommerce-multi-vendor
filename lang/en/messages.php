@@ -51,7 +51,7 @@ return [
 
 
   //products
-  'add products with ajax' => 'Add Products With Ajax',
+  'add products with ajax' => 'Add Nwe Products',
   'show products' => 'Show Products'
 
 

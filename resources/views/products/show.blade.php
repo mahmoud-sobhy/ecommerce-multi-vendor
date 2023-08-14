@@ -14,7 +14,6 @@
                             <th scope="col">id</th>
                             <th scope="col">Name</th> 
                             <th scope="col">Price</th>
-                            <th scope="col">Item Weight</th>
                             <th scope="col">Country Of Origin</th>
                             <th scope="col">Details</th>
                             <th scope="col">Photo</th>
@@ -31,11 +30,10 @@
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td>{{ $product->item_weight }}</td>
                                 <td>{{ $product->country_of_origin }}</td>
                                 <td>{{ $product->details }}</td> 
                                 <td>
-                                    <img src=""/>
+                                    <img src="{{asset('images/products/'. $product->photo)}}" style="width: 130px;"/>
                                 </td> 
                                 <td> 
                                     <a href="{{('/products/edit/'). $product->id}}">Edit</a> 

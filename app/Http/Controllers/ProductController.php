@@ -42,6 +42,8 @@ class ProductController extends Controller
         $messages = $request->messages();
 
         $validatedData = $request->validated();
+
+        
         // $validator = Validator::make( $request->all(), $rules, $messages);
 
             // if($validator -> fails()){

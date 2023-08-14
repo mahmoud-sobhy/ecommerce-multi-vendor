@@ -51,6 +51,6 @@ return [
   'actions' =>'الحركات',
 
   //products
-  'add products with ajax' => 'إضافة منتج مع ajax',
+  'add products with ajax' => 'إضافة منتج جديد',
   'show products' => 'عرض المنتجات',
 ];

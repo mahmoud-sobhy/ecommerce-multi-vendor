@@ -40,11 +40,11 @@
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">{{ session()->get('success') }}</div>
 
-                <script>
+                {{-- <script>
                     setTimeout(function() {
                         window.location.href = '{{ url()->previous() }}';
                     }, 5000);
-                </script>
+                </script> --}}
             @endif
 
 
@@ -104,37 +104,73 @@
     </div>
 @endsection
 
-{{-- @section('scripts')
-    
-<script>
+
+
+
+
+
+
+
+@section('scripts')
+
+{{-- <script>
     $(document).ready(function() {
-        // Find the form element
-        const form = $('#myForm');
+        $('#myForm').submit(function(e) {
+            e.preventDefault(); // Prevent form submission
 
-        // Add a submit event listener to the form
-        form.on('submit', function(event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
+            // Get form data
+            var formData = $(this).serialize();
 
-            // Serialize the form data
-            const formData = form.serialize();
-
-            // Send the form data via AJAX
+            // Send AJAX request
             $.ajax({
-                url: '/products/store',
-                method: 'POST',
-                data: formData,
+                url: "products/store",
+                type: 'POST',
+                data:{
+                    // formData,
+                    '_token' : '{{ csrf_token() }}',
+                        'name' => $("input[name='name']").val() ,
+                        'price' => $("input[name='price']").val(),
+                        'color' => $("input[name='color']").val(),
+                        'photo' => $("input[name='photo']").val(),
+                        'country_of_origin' => $("input[name='country_of_origin']").val(),
+                        'details' => $("input[name='details']").val(),
+                } 
+                dataType: 'json',
                 success: function(response) {
-                    // Handle the response from the server
-                    console.log('hello');
-                    alert('hello');
+                    // Handle the response from the controller
+                    // Update your view accordingly
                 },
-                error: function(error) {
-                    // Handle any errors that occurred during the AJAX request
-                    console.error('no' );
+                error: function(xhr, status, error) {
+                    // Handle AJAX error
                 }
             });
         });
     });
-</script>
-@endsection --}}
+</script> --}}
+
+     <script>
+        $(document).on('click','#save_product', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "products/store",
+                data: {
+                    '_token' : '{{ csrf_token() }}',
+                    'name' => $("input[name='name']").val() ,
+                    'price' => $("input[name='price']").val(),
+                    'color' => $("input[name='color']").val(),
+                    'photo' => $("input[name='photo']").val(),
+                    'country_of_origin' => $("input[name='country_of_origin']").val(),
+                    'details' => $("input[name='details']").val(),
+                },
+                success: function(data){
+                    
+                },
+                error: function(data){
+                    
+                }
+                });
+            });
+    </script>
+
+@endsection
