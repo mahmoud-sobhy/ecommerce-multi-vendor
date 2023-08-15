@@ -101,12 +101,16 @@ require __DIR__.'/auth.php';
 ##################### begin authentication && guards #################
 
 Route::group(['middleware' => 'CheckAge']  , function(){
-
     Route::get('adults', [CustomAuthController::class, 'adult'])->name('adult');
-
 });
 
 Route::get('/notadult', function () {
     return 'you are not adult';
 })->name('notadult');
+
+Route::get('site', [CustomAuthController::class, 'site'])->middleware('auth:web') ->name('site');
+Route::get('admin', [CustomAuthController::class, 'admin'])->middleware('auth:admin') ->name('admin');
+
+Route::get('admin/login', [CustomAuthController::class, 'AdminLogin'])->name('admin.login');
+Route::post('save-admin/login', [CustomAuthController::class, 'checkAdminLogin'])->name('save-admin.login');
 ##################### end authentication && guards #################
