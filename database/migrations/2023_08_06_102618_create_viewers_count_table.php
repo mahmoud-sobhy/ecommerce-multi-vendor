@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('viewers_count', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('viewers');
+            $table->string('viewers')->default(1);
             $table->timestamps();
         });
     }

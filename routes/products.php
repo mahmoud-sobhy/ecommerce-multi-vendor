@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,6 @@ Route::group(
             Route::get('edit/{id}', [ProductController::class, 'edit']);
         });
 
-        Route::get('/youtube', [OfferController::class, 'getviewvideo']);
+        Route::get('/youtube', [OfferController::class, 'getviewvideo'])->middleware('auth');
     }
 );
